@@ -1,14 +1,14 @@
 import { tmdbApi } from "./axiosConfig";
 
-export async function getPopularMovies() {
+export async function getPopularMovies(page) {
   const response = await tmdbApi.get("/movie/popular", {
     params: {
       language: "pt-BR",
-      page: 1,
+      page: page,
     },
   });
 
-  return response.data.results;
+  return response.data;
 }
 
 export async function searchMovies(query) {
