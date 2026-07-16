@@ -1,7 +1,8 @@
 import Card from "./components/Card";
 import { useEffect, useState } from "react";
-import { getPopularMovies } from "./service/movieApi";
+import { getPopularMovies, searchMovies } from "./service/movieApi";
 import "./App.css";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -9,6 +10,8 @@ function App() {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
   const [sortBy, setSortBy] = useState("null");
+  const [activeSearch, setActiveSearch] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     async function loadMovies() {
@@ -27,6 +30,37 @@ function App() {
 
     loadMovies();
   }, [page]);
+
+  const handleSearch = async (query) => {
+    try {
+      setLoading(true);
+      const results = await searchMovies(query);
+      setMovies(results);
+      setTotalPages(1);
+      setPage(1);
+      setActiveSearch(true);
+    } catch (error) {
+      console.error("Erro na busca:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClearSearch = async () => {
+    setSearchTerm("");
+    setActiveSearch(false);
+    setPage(1);
+    try {
+      setLoading(true);
+      const data = await getPopularMovies(1);
+      setMovies(data.results);
+      setTotalPages(data.total_pages);
+    } catch (error) {
+      console.error("Erro ao recarregar filmes:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleNextPage = () => {
     if (page < totalPages) {
@@ -62,41 +96,61 @@ function App() {
 
   return (
     <main className="catalog-page">
-      <h1>Filmes populares</h1>
-      <div>
-        <select value={sortBy} onChange={(event) => setSortBy(event.target.value)}>
-          <option value="null">Escolha uma opção</option>
-          <option value="title">Ordem alfabética</option>
-          <option value="rating">Maior avaliação</option>
-          <option value="year">Ano de lançamento</option>
-        </select>
+      <div className="content-inner">
+        <h1 className="page-title">Filmes populares</h1>
+
+        <div className="top-controls">
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            onSearch={handleSearch}
+            onClear={handleClearSearch}
+            activeSearch={activeSearch}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+          />
+        </div>
+
+        {loading ? (
+          <div className="loading">Carregando...</div>
+        ) : (
+          <>
+            <section className="movie-grid" aria-label="Catálogo de filmes">
+              {sortedMovies.map((movie) => (
+                <Card key={movie.id} movie={movie} />
+              ))}
+            </section>
+
+            <div className="pagination-controls">
+              <button
+                className="pagination-button prev"
+                onClick={handlePreviousPage}
+                disabled={page === 1}
+                aria-label="Anterior"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="sr-only">Anterior</span>
+              </button>
+
+              <span className="pagination-info">Página {page} de {totalPages}</span>
+
+              <button
+                className="pagination-button next"
+                onClick={handleNextPage}
+                disabled={page === totalPages}
+                aria-label="Próxima"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="sr-only">Próxima</span>
+              </button>
+            </div>
+          </>
+        )}
       </div>
-      {loading ? (
-        <div className="loading">Carregando...</div>
-      ) : (
-        <>
-          <section className="movie-grid" aria-label="Catálogo de filmes">
-
-            {sortedMovies.map((movie) => (
-              <Card key={movie.id} movie={movie} />
-            ))}
-          </section>
-          <div>
-            <button onClick={handlePreviousPage} disabled={page === 1}>
-              Anterior
-            </button>
-
-            <span>
-              Página {page} de {totalPages}
-            </span>
-
-            <button onClick={handleNextPage} disabled={page === totalPages}>
-              Próxima
-            </button>
-          </div>
-        </>
-      )}
-
     </main>
   );
 }
