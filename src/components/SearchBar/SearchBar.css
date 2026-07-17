@@ -1,0 +1,82 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px 12px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.28);
+  flex: 1 1 auto;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: inherit;
+  padding: 8px 6px;
+  font-size: 15px;
+  flex: 1 1 240px;
+}
+
+.search-button {
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clear-button {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.sort-inline {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.select-wrap {
+  position: relative;
+}
+
+.sort-select-inline {
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(0, 0, 0, 0.12);
+  color: inherit;
+  border: none;
+  padding: 8px 30px 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.select-wrap .arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+}

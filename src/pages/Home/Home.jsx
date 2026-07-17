@@ -1,10 +1,10 @@
-import Card from "./components/Card";
 import { useEffect, useState } from "react";
-import { getPopularMovies, searchMovies } from "./service/movieApi";
-import "./App.css";
-import SearchBar from "./components/SearchBar";
+import MovieCard from "../../components/MovieCard/MovieCard";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { getPopularMovies, searchMovies } from "../../api/movies";
+import "./Home.css";
 
-function App() {
+function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -18,7 +18,6 @@ function App() {
       try {
         setLoading(true);
         const data = await getPopularMovies(page);
-
         setMovies(data.results);
         setTotalPages(data.total_pages);
       } catch (error) {
@@ -66,13 +65,13 @@ function App() {
     if (page < totalPages) {
       setPage((currentPage) => currentPage + 1);
     }
-  }
+  };
 
   const handlePreviousPage = () => {
     if (page > 1) {
       setPage((currentPage) => currentPage - 1);
     }
-  }
+  };
 
   const sortedMovies = [...movies].sort((a, b) => {
     if (sortBy === "title") {
@@ -117,7 +116,7 @@ function App() {
           <>
             <section className="movie-grid" aria-label="Catálogo de filmes">
               {sortedMovies.map((movie) => (
-                <Card key={movie.id} movie={movie} />
+                <MovieCard key={movie.id} movie={movie} />
               ))}
             </section>
 
@@ -134,7 +133,9 @@ function App() {
                 <span className="sr-only">Anterior</span>
               </button>
 
-              <span className="pagination-info">Página {page} de {totalPages}</span>
+              <span className="pagination-info">
+                Página {page} de {totalPages}
+              </span>
 
               <button
                 className="pagination-button next"
@@ -155,4 +156,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
