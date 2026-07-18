@@ -28,7 +28,6 @@
 
 .pagination-info {
   color: inherit;
-  font-weight: 600;
   font-size: 15px;
 }
 
@@ -44,6 +43,11 @@
   box-shadow: 0 8px 20px rgba(2, 6, 23, 0.18);
   color: inherit;
   cursor: pointer;
+  transition:
+    background-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    color 0.22s ease;
 }
 
 .pagination-button svg {
