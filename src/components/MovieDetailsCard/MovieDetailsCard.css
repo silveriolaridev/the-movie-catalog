@@ -46,6 +46,19 @@
   margin: 0 auto;
   color: var(--text);
 }
+.details-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.overview-container{
+    margin-top: 1rem;
+    text-align: justify;
+    line-height: 1.5;
+    justify-content: justify;
+}
 
 .movie-details img {
   width: 100%;
@@ -60,11 +73,6 @@
   color: var(--text-h);
 }
 
-.movie-details p {
-  margin: 0;
-  text-align: center;
-  line-height: 1.5;
-}
 
 .movie-details .genres-row {
   margin-top: 0.25rem;
