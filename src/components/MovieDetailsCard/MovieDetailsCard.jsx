@@ -31,13 +31,7 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                 </button>
             </div>
             <section className="movie-details" aria-label="Detalhes do filme">
-                <div className="poster-container">
-                    <img
-                        src={posterUrl}
-                        alt={movie.title}
-                        loading="lazy"
-                    />
-                </div>
+                
                 <div className="details-container">
                 <h2>{movie.title}</h2>
                 <div className="overview-container">
@@ -65,6 +59,13 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                 <p>
                     <strong>Atores:</strong> {cast}
                 </p>
+                </div>
+                <div className="poster-container">
+                    <img
+                        src={posterUrl}
+                        alt={movie.title}
+                        loading="lazy"
+                    />
                 </div>
             </section>
         </>

@@ -36,7 +36,7 @@ function MovieDetails() {
         <div className="movie-details-page">
             <div className="content-inner">
                 {loading ? (
-                    <p>Carregando...</p>
+                    <p className="loading">Carregando...</p>
                 ) : errorMessage ? (
                     <p>{errorMessage}</p>
                 ) : (

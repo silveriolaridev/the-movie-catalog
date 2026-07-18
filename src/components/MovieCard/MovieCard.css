@@ -52,11 +52,13 @@
 .title-row {
   display: flex;
   align-items: flex-start;
+  text-align: left;
   gap: 12px;
 }
 
 .movie-title {
   font-size: 1rem;
+  text-align: left;
   line-height: 1.2;
   margin: 0;
   color: var(--text-h);
