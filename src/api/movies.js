@@ -42,3 +42,13 @@ export async function getMovieCredits(movieId) {
 
   return response.data;
 }
+
+export async function getMovieRecommendations(movieId) {
+const response = await api.get(`/movie/${movieId}/recommendations`, {
+    params: {
+      language: "pt-BR",
+    },
+  });
+
+  return response.data;
+}
