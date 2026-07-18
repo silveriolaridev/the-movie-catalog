@@ -62,7 +62,9 @@ const MovieDetailsCard = ({ id }) => {
     return (
         <>
          <div className="back-button-container">
-            <button className="back-button" onClick={() => navigate("/")}>Voltar</button>
+            <button className="back-button" onClick={() => navigate("/")} aria-label="Voltar para a página inicial">
+                Voltar
+            </button>
             </div>
         <section className="movie-details" aria-label="Detalhes do filme">
            

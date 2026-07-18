@@ -3,6 +3,16 @@
 	box-sizing: border-box;
 }
 
+.movie-details-page :is(p, li, span) {
+	color: var(--text);
+}
+
+.movie-details-page h1,
+.movie-details-page h2,
+.movie-details-page h3 {
+	color: var(--text-h);
+}
+
 @media (max-width: 1024px) {
 	.movie-details-page {
 		padding: 20px 16px 32px;

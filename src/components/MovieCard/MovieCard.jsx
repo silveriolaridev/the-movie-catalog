@@ -26,7 +26,7 @@ function MovieCard({ movie }) {
 
         <div className="rating-row">
           <span className="rating">
-            <strong>Nota:</strong>{"\u00A0"}
+            Nota:{"\u00A0"}
             {movie.vote_average.toFixed(1)}
           </span>
         </div>
