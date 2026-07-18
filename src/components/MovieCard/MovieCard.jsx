@@ -30,12 +30,6 @@ function MovieCard({ movie }) {
             {movie.vote_average.toFixed(1)}
           </span>
         </div>
-        <div className="genres-row">
-          <span>
-            <strong>Gêneros:</strong>{"\u00A0"}
-            {movie.genres?.map((genre) => genre.name).join(", ")}
-          </span>
-        </div>
       </div>
       
     </article>

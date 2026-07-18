@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { getMovieDetails } from "../../api/movies";
+import { getMovieCredits, getMovieDetails } from "../../api/movies";
 import "./MovieDetails.css";
 
 function MovieDetails() {
     const { id } = useParams();
 
     const [movie, setMovie] = useState(null);
+    const [credits, setCredits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
 
@@ -14,8 +15,12 @@ function MovieDetails() {
         async function movieDetails() {
             try {
                 setLoading(true);
-                const details = await getMovieDetails(id);
+                const [details, creditsData] = await Promise.all([
+                    getMovieDetails(id),
+                    getMovieCredits(id),
+                ]);
                 setMovie(details);
+                setCredits(creditsData);
             } catch (error) {
                 console.error("Erro ao buscar detalhes do filme:", error);
                 setErrorMessage("Erro ao buscar detalhes do filme.");
@@ -50,6 +55,8 @@ function MovieDetails() {
         }).format(date)
         : "Data indisponível";
     const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const director = credits?.crew?.find((person) => person.job === "Director")?.name || "Diretor não informado";
+    const cast = credits?.cast?.filter((person) => person.known_for_department === "Acting").map((person) => person.name).slice(0, 5).join(", ") || "Elenco indisponível";
 
     return (
         <section className="movie-details" aria-label="Detalhes do filme">
@@ -67,6 +74,21 @@ function MovieDetails() {
                 <strong>Nota:</strong> {movie.vote_average?.toFixed(1) ?? "-"}
             </p>
             <p>{movie.overview || "Sem sinopse disponível."}</p>
+            <div className="genres-row">
+          <span>
+            <strong>Gêneros:</strong>{"\u00A0"}
+            {movie.genres?.map((genre) => genre.name).join(", ")}
+          </span>
+        </div>
+        <p>
+          <strong>Duração:</strong> {movie.runtime ? `${movie.runtime} minutos` : "Duração indisponível"}
+        </p>
+        <p>
+          <strong>Diretor:</strong> {director}
+        </p>
+        <p>
+          <strong>Atores:</strong> {cast}
+        </p>
         </section>
     );
 }

@@ -32,3 +32,13 @@ export async function getMovieDetails(movieId) {
 
   return response.data;
 }
+
+export async function getMovieCredits(movieId) {
+  const response = await api.get(`/movie/${movieId}/credits`, {
+    params: {
+      language: "pt-BR",
+    },
+  });
+
+  return response.data;
+}
