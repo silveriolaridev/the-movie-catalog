@@ -130,7 +130,7 @@ function Home() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="sr-only">Anterior</span>
+                <span aria-label="Anterior">Anterior</span>
               </button>
 
               <span className="pagination-info">
@@ -146,7 +146,7 @@ function Home() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
-                <span className="sr-only">Próxima</span>
+                <span aria-label="Próxima">Próxima</span>
               </button>
             </div>
           </>

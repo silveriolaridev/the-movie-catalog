@@ -2,38 +2,27 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: transparent;
+  border: 1px solid var(--border);
   padding: 8px 12px;
   border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.28);
+  box-shadow: var(--shadow);
   flex: 1 1 auto;
-}
-
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
 }
 
 .search-input {
   border: none;
   outline: none;
   background: transparent;
-  color: inherit;
+  color: var(--text);
   padding: 8px 6px;
   font-size: 15px;
   flex: 1 1 240px;
 }
 
 .search-button {
-  color: white;
+  background: transparent;
+  color: var(--text);
   border: none;
   padding: 8px 10px;
   border-radius: 8px;
@@ -41,9 +30,13 @@
   font-weight: 600;
 }
 
+.search-button:hover {
+  background: var(--code-bg)
+}
+
 .clear-button {
   background: transparent;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--text);
   border: none;
   padding: 6px 8px;
   cursor: pointer;
@@ -62,13 +55,24 @@
 .sort-select-inline {
   -webkit-appearance: none;
   appearance: none;
-  background: rgba(0, 0, 0, 0.12);
-  color: inherit;
-  border: none;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 8px 30px 8px 10px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.search-input:focus,
+.search-input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.sort-select-inline option {
+  background: var(--bg);
+  color: var(--text);
 }
 
 .select-wrap .arrow {
@@ -77,6 +81,6 @@
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text);
   font-size: 12px;
 }

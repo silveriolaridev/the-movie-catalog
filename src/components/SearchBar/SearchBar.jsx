@@ -58,10 +58,7 @@ function SearchBar({
         </button>
       )}
 
-      <div className="sort-inline">
-        <label className="sr-only" htmlFor="sort-select-inline">
-          Ordenar
-        </label>
+      <div className="sort-inline" aria-label="Ordenar filmes">
         <div className="select-wrap">
           <select
             id="sort-select-inline"
