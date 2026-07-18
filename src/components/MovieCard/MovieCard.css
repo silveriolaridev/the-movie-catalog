@@ -96,6 +96,7 @@
   display: inline-flex;
   align-items: center;
   color: var(--text);
+  gap: 0.35rem;
 }
 
 .rating-row {

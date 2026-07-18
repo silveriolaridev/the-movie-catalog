@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
+import { Star } from "lucide-react";
 
 function MovieCard({ movie, variant = "default" }) {
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
@@ -24,8 +25,8 @@ function MovieCard({ movie, variant = "default" }) {
         </div>
 
         <div className="rating-row">
-          <span className="rating">
-            Nota:{"\u00A0"}
+          <span className="rating" aria-label={`Avaliação ${movie.vote_average.toFixed(1)}`}>
+              <Star size={16} aria-hidden="true" />
             {movie.vote_average.toFixed(1)}
           </span>
         </div>
