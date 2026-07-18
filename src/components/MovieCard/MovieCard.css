@@ -63,6 +63,11 @@
   margin: 0;
   color: var(--text-h);
   flex: 1 1 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .year-tag {
@@ -94,7 +99,19 @@
 }
 
 .rating-row {
-  margin-top: 6px;
   display: flex;
   align-items: center;
+}
+
+
+.movie-card--compact img {
+  height: 260px;
+}
+
+.movie-card--compact h3 {
+  font-size: 1rem;
+}
+
+.movie-card--compact .movie-card-info {
+  padding: 0.85rem;
 }

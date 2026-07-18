@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
 
-
-function MovieCard({ movie }) {
+function MovieCard({ movie, variant = "default" }) {
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
   const date = new Date(movie.release_date);
   const year = date.getFullYear();
 
   return (
     <Link to={`/movie/${movie.id}`} >
-    <article className="movie-card">
+    <article className={`movie-card movie-card--${variant}`}>
       <img
         src={`${baseImageUrl}${movie.poster_path}`}
         alt={movie.title}
