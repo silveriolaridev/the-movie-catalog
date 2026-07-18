@@ -50,6 +50,13 @@
 
 .select-wrap {
   position: relative;
+  font-size: 14px;
+}
+
+.select-title{
+  font-size: 14px;
+  margin-right: 8px;
+  color: var(--text);
 }
 
 .sort-select-inline {

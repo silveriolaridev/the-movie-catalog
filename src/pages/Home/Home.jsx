@@ -86,11 +86,7 @@ function Home() {
       return Number(b.release_date?.slice(0, 4) || 0) - Number(a.release_date?.slice(0, 4) || 0);
     }
 
-    if (sortBy === "null") {
-      return movies;
-    }
-
-    return movies;
+    return b.vote_average - a.vote_average;
   });
 
   return (

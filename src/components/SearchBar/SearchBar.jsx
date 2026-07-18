@@ -57,8 +57,9 @@ function SearchBar({
           ✖
         </button>
       )}
-
+      |
       <div className="sort-inline" aria-label="Ordenar filmes">
+        <p className="select-title">Ordenar por:</p>
         <div className="select-wrap">
           <select
             id="sort-select-inline"
@@ -66,9 +67,8 @@ function SearchBar({
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
-            <option value="null">Ordenar</option>
-            <option value="title">Ordem alfabética</option>
             <option value="rating">Maior avaliação</option>
+            <option value="title">Ordem alfabética</option>
             <option value="year">Ano de lançamento</option>
           </select>
           <span className="arrow">▾</span>
