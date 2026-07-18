@@ -2,14 +2,6 @@
   margin-bottom: 50px;
 }
 
-.catalog-page {
-  padding: 32px 24px 48px;
-}
-
-.content-inner {
-  padding: 30px;
-}
-
 .movie-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -81,10 +73,6 @@
 }
 
 @media (max-width: 1024px) {
-  .catalog-page {
-    padding: 20px 16px 32px;
-  }
-
   .movie-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;

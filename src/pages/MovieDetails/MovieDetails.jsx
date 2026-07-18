@@ -1,15 +1,18 @@
 import { useParams } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
 import MoviesRecomendations from "../../components/MoviesRecomendations/MoviesRecomendations";
+import "./MovieDetails.css";
 
 function MovieDetails() {
     const { id } = useParams();
 
     return (
-        <>
-            <MovieDetailsCard id={id} />
-            <MoviesRecomendations id={id} />
-        </>
+        <div className="movie-details-page">
+            <div className="content-inner">
+                <MovieDetailsCard id={id} />
+                <MoviesRecomendations id={id} />
+            </div>
+        </div>
 
     );
 }

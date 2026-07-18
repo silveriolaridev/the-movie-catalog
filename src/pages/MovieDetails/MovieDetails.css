@@ -1,0 +1,10 @@
+.movie-details-page {
+	padding: 32px 24px 48px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+	.movie-details-page {
+		padding: 20px 16px 32px;
+	}
+}

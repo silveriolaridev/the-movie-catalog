@@ -65,6 +65,23 @@ body {
   box-sizing: border-box;
 }
 
+.catalog-page,
+.movie-details-page {
+  padding: 32px 24px 48px;
+  box-sizing: border-box;
+}
+
+.content-inner {
+  padding: 30px;
+}
+
+@media (max-width: 1024px) {
+  .catalog-page,
+  .movie-details-page {
+    padding: 20px 16px 32px;
+  }
+}
+
 h1,
 h2 {
   font-family: var(--heading);
