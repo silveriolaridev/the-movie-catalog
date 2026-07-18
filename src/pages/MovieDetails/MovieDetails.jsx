@@ -41,15 +41,27 @@ function MovieDetails() {
         );
     }
 
-    const year = movie.release_date ? movie.release_date.slice(0, 4) : "-";
+    const date = movie.release_date ? new Date(movie.release_date) : null;
+    const formattedDate = date
+        ? new Intl.DateTimeFormat("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+        }).format(date)
+        : "Data indisponível";
     const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-    const backdropUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
 
     return (
         <section className="movie-details" aria-label="Detalhes do filme">
+            <img
+                src={posterUrl}
+                alt={movie.title}
+                loading="lazy"
+            />
+            
             <h2>{movie.title}</h2>
             <p>
-                <strong>Ano:</strong> {year}
+                <strong>Lançamento:</strong> {formattedDate}
             </p>
             <p>
                 <strong>Nota:</strong> {movie.vote_average?.toFixed(1) ?? "-"}

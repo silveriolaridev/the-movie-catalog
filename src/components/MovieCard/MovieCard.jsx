@@ -4,7 +4,8 @@ import "./MovieCard.css";
 
 function MovieCard({ movie }) {
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
-  const year = movie.release_date ? movie.release_date.slice(0, 4) : "-";
+  const date = new Date(movie.release_date);
+  const year = date.getFullYear();
 
   return (
     <Link to={`/movie/${movie.id}`} >
@@ -29,7 +30,14 @@ function MovieCard({ movie }) {
             {movie.vote_average.toFixed(1)}
           </span>
         </div>
+        <div className="genres-row">
+          <span>
+            <strong>Gêneros:</strong>{"\u00A0"}
+            {movie.genres?.map((genre) => genre.name).join(", ")}
+          </span>
+        </div>
       </div>
+      
     </article>
     </Link>
   );
