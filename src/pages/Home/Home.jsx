@@ -3,6 +3,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { getPopularMovies, searchMovies } from "../../api/movies";
 import "./Home.css";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -92,7 +93,8 @@ function Home() {
   return (
     <main className="catalog-page">
       <div className="content-inner">
-        <h1 className="page-title">Filmes populares</h1>
+        <h1 className="page-title">The Movie Catalog</h1>
+        <p className="page-description">Descubra novos filmes para assistir, explore detalhes e encontre recomendações.</p>
 
         <div className="top-controls">
           <SearchBar
@@ -123,9 +125,7 @@ function Home() {
                 disabled={page === 1}
                 aria-label="Anterior"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <ChevronLeft size={18} aria-hidden="true" />
               </button>
 
               <span className="pagination-info">
@@ -138,9 +138,7 @@ function Home() {
                 disabled={page === totalPages}
                 aria-label="Próxima"
               >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <ChevronRight size={18} aria-hidden="true" />
               </button>
             </div>
           </>

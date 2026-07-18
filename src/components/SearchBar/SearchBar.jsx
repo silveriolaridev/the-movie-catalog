@@ -24,7 +24,7 @@ function SearchBar({
       <input
         className="search-input"
         type="text"
-        placeholder="Buscar filme..."
+        placeholder="Buscar por título..."
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />

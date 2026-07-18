@@ -28,7 +28,7 @@ console.log('Recommendations:', recommendations)
 
     return (
         <div className="movies-recommendations">
-            {loading ? <p>Carregando...</p> : <h2>Filmes Similares</h2>}
+            {loading ? <p>Carregando...</p> : <h2>Filmes recomendados</h2>}
             {!loading && recommendations.length > 0 && recommendations.map((movie)=> (
                 <div className="movie-card-container" key={movie.id}>
                 <MovieCard key={movie.id} movie={movie} variant="compact" /></div>
