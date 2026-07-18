@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { getMovieCredits, getMovieDetails } from "../../api/movies";
 import { useEffect, useState } from "react";
 import "./MovieDetailsCard.css";
@@ -8,6 +9,7 @@ const MovieDetailsCard = ({ id }) => {
     const [credits, setCredits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         async function movieDetails() {
@@ -58,7 +60,12 @@ const MovieDetailsCard = ({ id }) => {
 
 
     return (
+        <>
+         <div className="back-button-container">
+            <button className="back-button" onClick={() => navigate("/")}>Voltar</button>
+            </div>
         <section className="movie-details" aria-label="Detalhes do filme">
+           
             <img
                 src={posterUrl}
                 alt={movie.title}
@@ -89,6 +96,7 @@ const MovieDetailsCard = ({ id }) => {
                 <strong>Atores:</strong> {cast}
             </p>
         </section>
+        </>
     )
 
 }

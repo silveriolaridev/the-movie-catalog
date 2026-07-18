@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
 import MoviesRecomendations from "../../components/MoviesRecomendations/MoviesRecomendations";
