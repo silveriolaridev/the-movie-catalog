@@ -1,6 +1,7 @@
 import "./SearchBar.css";
+import { Search } from "lucide-react";
 
-function SearchBar({
+const SearchBar = ({
   searchTerm,
   setSearchTerm,
   onSearch,
@@ -8,7 +9,7 @@ function SearchBar({
   activeSearch,
   sortBy,
   setSortBy,
-}) {
+}) => {
   const handleSearch = (event) => {
     event.preventDefault();
     if (searchTerm.trim() !== "") onSearch(searchTerm.trim());
@@ -30,21 +31,7 @@ function SearchBar({
       />
 
       <button className="search-button" type="submit" aria-label="Buscar">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M21 21L16.65 16.65M18 11C18 14.866 14.866 18 11 18C7.13401 18 4 14.866 4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11Z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <Search size={18} aria-hidden="true" />
       </button>
 
       {activeSearch && (
@@ -57,7 +44,7 @@ function SearchBar({
           ✖
         </button>
       )}
-      |
+      <span className="separator" aria-hidden="true" />      
       <div className="sort-inline" aria-label="Ordenar filmes">
         <p className="select-title">Ordenar por:</p>
         <div className="select-wrap">

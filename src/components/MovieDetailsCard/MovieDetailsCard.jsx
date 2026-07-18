@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./MovieDetailsCard.css";
 import {
@@ -32,10 +32,10 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
     return (
         <>
             <div className="back-button-container">
-                <button className="back-button" onClick={() => navigate("/")} aria-label="Voltar para a página inicial">
+                <Link to="/" className="back-button" aria-label="Voltar para a página inicial">
                     <ChevronLeft size={18} aria-hidden="true" />
                     Voltar
-                </button>
+                </Link>
             </div>
             <section className="movie-details" aria-label="Detalhes do filme">
 

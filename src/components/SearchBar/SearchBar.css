@@ -91,3 +91,11 @@
   color: var(--text);
   font-size: 12px;
 }
+
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background-color: var(--border);
+  display: inline-block;
+}
