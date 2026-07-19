@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
-import MoviesRecomendations from "../../components/MoviesRecomendations/MoviesRecomendations";
+import MoviesRecommendations from "../../components/MoviesRecommendations/MoviesRecommendations";
 import { getMovieCredits, getMovieDetails, getMovieRecommendations } from "../../api/movieRequests";
 import Loading from "../../components/Loading/Loading";
 import "./MovieDetails.css";
@@ -45,7 +45,7 @@ function MovieDetails() {
                 ) : (
                     <>
                         <MovieDetailsCard id={id} movie={movie} credits={credits} />
-                        <MoviesRecomendations id={id} recommendations={recommendations} loading={loading} />
+                        <MoviesRecommendations id={id} recommendations={recommendations} loading={loading} />
                     </>
                 )}
 

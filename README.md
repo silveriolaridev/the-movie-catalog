@@ -96,7 +96,7 @@ src/
     MovieCard/
     MovieDetailsCard/
     MovieInfoItem/
-    MoviesRecomendations/
+    MoviesRecommendations/
     SearchBar/
     SortMovies/
 

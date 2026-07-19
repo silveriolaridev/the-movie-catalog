@@ -1,10 +1,10 @@
-import "./MoviesRecomendations.css";
+import "./MoviesRecommendations.css";
 import { getMovieRecommendations } from "../../api/movieRequests";
 import { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import Loading from "../Loading/Loading";
 
-const MoviesRecomendations = ({id, recommendations, loading}) => {
+const MoviesRecommendations = ({id, recommendations, loading}) => {
 
     return (
         <section className="movies-recommendations">
@@ -17,4 +17,4 @@ const MoviesRecomendations = ({id, recommendations, loading}) => {
     )
 }
 
-export default MoviesRecomendations;
+export default MoviesRecommendations;
