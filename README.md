@@ -56,7 +56,13 @@ npm install
 
 Crie uma conta no [TMDB](https://www.themoviedb.org/) e gere um token de acesso à API.
 
-Depois, crie um arquivo `.env` na raiz do projeto, no mesmo nível do `package.json`, e adicione a variável:
+Depois, crie um arquivo `.env` na raiz do projeto, no mesmo nível do `package.json` usando o arquivo `.env.example` como referência:
+
+```bash
+cp .env.example .env
+```
+
+No arquivo `.env`, adicione seu token do TMDB:
 
 ```env
 VITE_TMDB_TOKEN=seu_read_access_token_do_tmdb
