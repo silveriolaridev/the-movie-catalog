@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import { getPopularMovies, searchMovies } from "../../api/movieRequests";
 import "./Home.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import SortMovies from "../../components/SortMovies/SortMovies";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -108,9 +109,8 @@ function Home() {
               onSearch={handleSearch}
               onClear={handleClearSearch}
               activeSearch={activeSearch}
-              sortBy={sortBy}
-              setSortBy={setSortBy}
             />
+            <SortMovies sortBy={sortBy} setSortBy={setSortBy} />
           </div>
 
           {loading ? (

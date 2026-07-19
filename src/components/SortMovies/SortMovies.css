@@ -1,0 +1,33 @@
+.sort-inline {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.select-wrap {
+  position: relative;
+  font-size: 14px;
+}
+
+.select-title{
+  font-size: 14px;
+  margin-right: 8px;
+  color: var(--text);
+}
+
+.sort-select-inline {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 30px 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.sort-select-inline option {
+  background: var(--bg);
+  color: var(--text);
+}

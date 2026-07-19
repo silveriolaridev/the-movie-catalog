@@ -91,6 +91,7 @@ src/
     MovieDetailsCard/
     MoviesRecomendations/
     SearchBar/
+    SortMovies/
 
   pages/
     Home/
