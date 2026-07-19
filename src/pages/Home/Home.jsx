@@ -91,59 +91,60 @@ function Home() {
   });
 
   return (
+
     <main className="catalog-page">
-      <div className="content-inner">
-        <h1 className="page-title">The Movie Catalog</h1>
-        <p className="page-description">Descubra novos filmes para assistir, explore detalhes e encontre recomendações.</p>
+        <div className="content-inner">
+          <h1 className="page-title">The Movie Catalog</h1>
+          <p className="page-description">Descubra novos filmes para assistir, explore detalhes e encontre recomendações.</p>
 
-        <div className="top-controls">
-          <SearchBar
-            searchTerm={searchTerm}
-            setSearchTerm={setSearchTerm}
-            onSearch={handleSearch}
-            onClear={handleClearSearch}
-            activeSearch={activeSearch}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-          />
+          <div className="top-controls">
+            <SearchBar
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              onSearch={handleSearch}
+              onClear={handleClearSearch}
+              activeSearch={activeSearch}
+              sortBy={sortBy}
+              setSortBy={setSortBy}
+            />
+          </div>
+
+          {loading ? (
+            <div className="loading">Carregando...</div>
+          ) : (
+            <>
+              <section className="movie-grid" aria-label="Catálogo de filmes">
+                {sortedMovies.map((movie) => (
+                  <MovieCard key={movie.id} movie={movie} />
+                ))}
+              </section>
+
+              <div className="pagination-controls">
+                <button
+                  className="pagination-button prev"
+                  onClick={handlePreviousPage}
+                  disabled={page === 1}
+                  aria-label="Anterior"
+                >
+                  <ChevronLeft size={18} aria-hidden="true" />
+                </button>
+
+                <span className="pagination-info">
+                  Página {page} de {totalPages}
+                </span>
+
+                <button
+                  className="pagination-button next"
+                  onClick={handleNextPage}
+                  disabled={page === totalPages}
+                  aria-label="Próxima"
+                >
+                  <ChevronRight size={18} aria-hidden="true" />
+                </button>
+              </div>
+            </>
+          )}
         </div>
-
-        {loading ? (
-          <div className="loading">Carregando...</div>
-        ) : (
-          <>
-            <section className="movie-grid" aria-label="Catálogo de filmes">
-              {sortedMovies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} />
-              ))}
-            </section>
-
-            <div className="pagination-controls">
-              <button
-                className="pagination-button prev"
-                onClick={handlePreviousPage}
-                disabled={page === 1}
-                aria-label="Anterior"
-              >
-                <ChevronLeft size={18} aria-hidden="true" />
-              </button>
-
-              <span className="pagination-info">
-                Página {page} de {totalPages}
-              </span>
-
-              <button
-                className="pagination-button next"
-                onClick={handleNextPage}
-                disabled={page === totalPages}
-                aria-label="Próxima"
-              >
-                <ChevronRight size={18} aria-hidden="true" />
-              </button>
-            </div>
-          </>
-        )}
-      </div>
     </main>
   );
 }

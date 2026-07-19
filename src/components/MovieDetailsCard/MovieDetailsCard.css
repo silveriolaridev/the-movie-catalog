@@ -48,6 +48,10 @@
     box-sizing: border-box;
     margin: 0 auto;
     color: var(--text);
+    border-radius: 12px;
+    background: var(--header-bg);
+    border: 1px solid var(--social-bg);
+    box-shadow: var(--shadow);
 }
 
 .details-container {
