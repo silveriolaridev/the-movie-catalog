@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
 import MoviesRecomendations from "../../components/MoviesRecomendations/MoviesRecomendations";
-import { getMovieCredits, getMovieDetails } from "../../api/movieRequests";
+import { getMovieCredits, getMovieDetails, getMovieRecommendations } from "../../api/movieRequests";
+import Loading from "../../components/Loading/Loading";
 import "./MovieDetails.css";
 import { useEffect, useState } from "react";
 
@@ -11,17 +12,21 @@ function MovieDetails() {
     const [credits, setCredits] = useState(null);
     const [loading, setLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const [recommendations, setRecommendations] = useState([]);
+
 
     useEffect(() => {
         async function movieDetails() {
             try {
                 setLoading(true);
-                const [details, creditsData] = await Promise.all([
+                const [details, creditsData, recommendationsData] = await Promise.all([
                     getMovieDetails(id),
                     getMovieCredits(id),
+                    getMovieRecommendations(id)
                 ]);
                 setMovie(details);
                 setCredits(creditsData);
+                setRecommendations(recommendationsData.results);
             } catch (error) {
                 console.error("Erro ao buscar detalhes do filme:", error);
                 setErrorMessage("Erro ao buscar detalhes do filme.");
@@ -36,13 +41,11 @@ function MovieDetails() {
         <div className="movie-details-page">
             <div className="content-inner">
                 {loading ? (
-                    <p className="loading">Carregando...</p>
-                ) : errorMessage ? (
-                    <p>{errorMessage}</p>
+                    <Loading />
                 ) : (
                     <>
                         <MovieDetailsCard id={id} movie={movie} credits={credits} />
-                        <MoviesRecomendations id={id} />
+                        <MoviesRecomendations id={id} recommendations={recommendations} loading={loading} />
                     </>
                 )}
 

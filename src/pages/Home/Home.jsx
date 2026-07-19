@@ -5,6 +5,7 @@ import { getPopularMovies, searchMovies } from "../../api/movieRequests";
 import "./Home.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SortMovies from "../../components/SortMovies/SortMovies";
+import Loading from "../../components/Loading/Loading";
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -114,7 +115,7 @@ function Home() {
           </div>
 
           {loading ? (
-            <div className="loading">Carregando...</div>
+            <Loading />
           ) : (
             <>
               <section className="movie-grid" aria-label="Catálogo de filmes">

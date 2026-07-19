@@ -92,6 +92,7 @@ src/
 
   components/
     Header/
+    Loading/
     MovieCard/
     MovieDetailsCard/
     MovieInfoItem/
