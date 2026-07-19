@@ -1,5 +1,5 @@
 import "./MoviesRecomendations.css";
-import { getMovieRecommendations } from "../../api/movies";
+import { getMovieRecommendations } from "../../api/movieRequests";
 import { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 

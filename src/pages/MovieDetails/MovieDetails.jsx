@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import MovieDetailsCard from "../../components/MovieDetailsCard/MovieDetailsCard";
 import MoviesRecomendations from "../../components/MoviesRecomendations/MoviesRecomendations";
-import { getMovieCredits, getMovieDetails } from "../../api/movies";
+import { getMovieCredits, getMovieDetails } from "../../api/movieRequests";
 import "./MovieDetails.css";
 import { useEffect, useState } from "react";
 

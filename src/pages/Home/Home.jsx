@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import { getPopularMovies, searchMovies } from "../../api/movies";
+import { getPopularMovies, searchMovies } from "../../api/movieRequests";
 import "./Home.css";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 

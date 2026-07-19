@@ -31,8 +31,8 @@ const Header = () => {
             className="github-link"
           >
             <FaGithub size={20} aria-hidden="true" />
-            Ver projeto no GitHub
-            <FiExternalLink size={16} aria-hidden="true" />
+            <span className="github-link-text">Ver projeto no GitHub</span>
+            <FiExternalLink className="external-link-icon" size={16} aria-hidden="true" />
 
           </a>
         </nav>

@@ -54,3 +54,18 @@
   outline-offset: 4px;
   border-radius: 6px;
 }
+
+@media (max-width: 640px) {
+  .github-link-text,
+  .external-link-icon {
+    display: none;
+  }
+
+  .github-link {
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    border-radius: 999px;
+    background-color: var(--social-bg);
+  }
+}
