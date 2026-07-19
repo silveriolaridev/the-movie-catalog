@@ -1,6 +1,9 @@
 
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { FaGithub } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
+
 const Header = () => {
   return (
     <header className="header">
@@ -19,6 +22,20 @@ const Header = () => {
             />
           </picture>
         </Link>
+
+        <nav className="header-nav" aria-label="Navegação principal">
+          <a
+            href="https://github.com/silveriolaridev/react-movie-catalog"
+            target="_blank"
+            rel="noreferrer"
+            className="github-link"
+          >
+            <FaGithub size={20} aria-hidden="true" />
+            Ver projeto no GitHub
+            <FiExternalLink size={16} aria-hidden="true" />
+
+          </a>
+        </nav>
       </div>
     </header>
   );

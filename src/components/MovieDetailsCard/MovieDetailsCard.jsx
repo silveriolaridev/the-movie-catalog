@@ -2,14 +2,16 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./MovieDetailsCard.css";
 import {
-    Calendar,
-    Star,
-    Clapperboard,
-    Clock,
-    Video,
-    Users,
-    ChevronLeft
-} from "lucide-react";
+  FiSearch,
+  FiChevronLeft,
+  FiChevronRight,
+  FiCalendar,
+  FiStar,
+  FiClock,
+  FiUsers,
+  FiVideo,
+  FiFilm
+} from "react-icons/fi";
 
 
 const MovieDetailsCard = ({ id, movie, credits }) => {
@@ -33,7 +35,7 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
         <>
             <div className="back-button-container">
                 <Link to="/" className="back-button" aria-label="Voltar para a página inicial">
-                    <ChevronLeft size={18} aria-hidden="true" />
+                    <FiChevronLeft size={18} aria-hidden="true" />
                     Voltar
                 </Link>
             </div>
@@ -47,21 +49,21 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                     </div>
 
                     <p className="movie-info-item">
-                        <Calendar size={18} aria-hidden="true" />
+                        <FiCalendar size={18} aria-hidden="true" />
                         <span>
                             <strong>Data de lançamento:</strong> {formattedDate}
                         </span>
                     </p>
 
                     <p className="movie-info-item">
-                        <Star size={18} aria-hidden="true" />
+                        <FiStar size={18} aria-hidden="true" />
                         <span>
                             <strong>Nota:</strong> {movie.vote_average?.toFixed(1) ?? "-"}
                         </span>
                     </p>
 
                     <p className="movie-info-item">
-                        <Clapperboard size={18} aria-hidden="true" />
+                        <FiFilm size={18} aria-hidden="true" />
                         <span>
                             <strong>Gêneros:</strong>{" "}
                             {movie.genres?.map((genre) => genre.name).join(", ") || "Indisponível"}
@@ -69,7 +71,7 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                     </p>
 
                     <p className="movie-info-item">
-                        <Clock size={18} aria-hidden="true" />
+                        <FiClock size={18} aria-hidden="true" />
                         <span>
                             <strong>Duração:</strong>{" "}
                             {movie.runtime ? `${movie.runtime} minutos` : "Duração indisponível"}
@@ -77,14 +79,14 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                     </p>
 
                     <p className="movie-info-item">
-                        <Video size={18} aria-hidden="true" />
+                        <FiVideo size={18} aria-hidden="true" />
                         <span>
                             <strong>Diretor:</strong> {director || "Indisponível"}
                         </span>
                     </p>
 
                     <p className="movie-info-item">
-                        <Users size={18} aria-hidden="true" />
+                        <FiUsers size={18} aria-hidden="true" />
                         <span>
                             <strong>Atores principais:</strong> {cast || "Indisponível"}
                         </span>

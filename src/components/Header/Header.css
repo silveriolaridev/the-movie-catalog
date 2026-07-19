@@ -22,3 +22,35 @@
   width: 180px;
   height: auto;
 }
+
+.header-nav{
+  font-size: 16px;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.github-link{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.github-link svg {
+  transition: transform 0.2s ease;
+}
+
+.github-link:hover {
+  color: var(--text-h);
+  transform: translateY(-1px);
+}
+
+.github-link:hover .external-link-icon {
+  transform: translate(2px, -2px);
+}
+
+.github-link:focus-visible {
+  outline: 2px solid var(--text-h);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
