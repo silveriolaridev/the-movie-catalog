@@ -87,7 +87,11 @@ function Home() {
       return Number(b.release_date?.slice(0, 4) || 0) - Number(a.release_date?.slice(0, 4) || 0);
     }
 
-    return b.vote_average - a.vote_average;
+    if (sortBy === "popularity") {
+      return b.popularity - a.popularity;
+    }
+
+    return b.popularity - a.popularity;
   });
 
   return (

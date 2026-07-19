@@ -55,6 +55,7 @@ const SearchBar = ({
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
           >
+            <option value="popularity">Mais populares</option>
             <option value="rating">Maior avaliação</option>
             <option value="title">Ordem alfabética</option>
             <option value="year">Ano de lançamento</option>

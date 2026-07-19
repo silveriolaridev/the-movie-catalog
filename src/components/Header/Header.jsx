@@ -25,7 +25,7 @@ const Header = () => {
 
         <nav className="header-nav" aria-label="Navegação principal">
           <a
-            href="https://github.com/silveriolaridev/react-movie-catalog"
+            href="https://github.com/silveriolaridev/the-movie-catalog"
             target="_blank"
             rel="noreferrer"
             className="github-link"

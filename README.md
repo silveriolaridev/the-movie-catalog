@@ -1,16 +1,112 @@
-# React + Vite
+# The Movie Catalog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Movie Catalog é uma aplicação web desenvolvida com React para explorar filmes, buscar títulos, visualizar detalhes completos e descobrir recomendações relacionadas.
 
-Currently, two official plugins are available:
+O projeto consome dados da API do TMDB e foi desenvolvido com foco em componentização, consumo de API externa, rotas dinâmicas, responsividade, organização de código e boas práticas de acessibilidade.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
 
-## React Compiler
+- Listagem de filmes populares
+- Busca de filmes por título
+- Paginação de resultados
+- Ordenação por popularidade, ordem alfabética, avaliação e ano
+- Página de detalhes do filme
+- Exibição de informações como sinopse, nota, data de lançamento, duração, gêneros, diretor e elenco
+- Recomendações de filmes relacionados
+- Layout responsivo
+- Tema claro/escuro baseado na preferência do sistema
+- Navegação com React Router DOM
+- Consumo de API com Axios
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias utilizadas
 
-## Expanding the ESLint configuration
+- React
+- JavaScript
+- Vite
+- React Router DOM
+- Axios
+- React Icons
+- CSS
+- HTML
+- TMDB API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Como executar o projeto
+
+Para rodar este projeto localmente, é necessário ter uma conta no [TMDB](https://www.themoviedb.org/) e gerar um token de acesso à API.
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/silveriolaridev/the-movie-catalog.git
+```
+
+### 2. Acesse a pasta do projeto
+
+```bash
+cd the-movie-catalog
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Configure a API do TMDB
+
+Crie uma conta no [TMDB](https://www.themoviedb.org/) e gere um token de acesso à API.
+
+Depois, crie um arquivo `.env` na raiz do projeto, no mesmo nível do `package.json`, e adicione a variável:
+
+```env
+VITE_TMDB_TOKEN=seu_read_access_token_do_tmdb
+```
+
+> O projeto utiliza variáveis de ambiente do Vite, por isso o nome da variável precisa começar com `VITE_`.
+
+### 5. Execute o projeto
+
+```bash
+npm run dev
+```
+
+### 6. Acesse no navegador
+
+```bash
+http://localhost:5173
+```
+
+## Estrutura do projeto
+
+```txt
+src/
+  api/
+    axiosConfig.js
+    movieRequests.js
+
+  components/
+    Footer/
+    Header/
+    MovieCard/
+    MovieDetailsCard/
+    MoviesRecomendations/
+    SearchBar/
+
+  pages/
+    Home/
+      Home.css
+      Home.jsx
+
+    MovieDetails/
+      MovieDetails.css
+      MovieDetails.jsx
+
+  App.jsx
+  index.css
+  main.jsx
+```
+
+## Desenvolvido por
+
+Larissa Silvério  
+[GitHub](https://github.com/silveriolaridev) | [LinkedIn](coloque-seu-linkedin-aqui)
