@@ -85,22 +85,17 @@ src/
     movieRequests.js
 
   components/
-    Footer/
     Header/
     MovieCard/
     MovieDetailsCard/
+    MovieInfoItem/
     MoviesRecomendations/
     SearchBar/
     SortMovies/
 
   pages/
     Home/
-      Home.css
-      Home.jsx
-
     MovieDetails/
-      MovieDetails.css
-      MovieDetails.jsx
 
   App.jsx
   index.css

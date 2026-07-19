@@ -1,16 +1,17 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import "./MovieDetailsCard.css";
+import MovieInfoItem from "../MovieInfoItem/MovieInfoItem";
 import {
-  FiSearch,
-  FiChevronLeft,
-  FiChevronRight,
-  FiCalendar,
-  FiStar,
-  FiClock,
-  FiUsers,
-  FiVideo,
-  FiFilm
+    FiSearch,
+    FiChevronLeft,
+    FiChevronRight,
+    FiCalendar,
+    FiStar,
+    FiClock,
+    FiUsers,
+    FiVideo,
+    FiFilm
 } from "react-icons/fi";
 
 
@@ -48,49 +49,12 @@ const MovieDetailsCard = ({ id, movie, credits }) => {
                         <p>{movie.overview || "Sem sinopse disponível."}</p>
                     </div>
 
-                    <p className="movie-info-item">
-                        <FiCalendar size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Data de lançamento:</strong> {formattedDate}
-                        </span>
-                    </p>
-
-                    <p className="movie-info-item">
-                        <FiStar size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Nota:</strong> {movie.vote_average?.toFixed(1) ?? "-"}
-                        </span>
-                    </p>
-
-                    <p className="movie-info-item">
-                        <FiFilm size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Gêneros:</strong>{" "}
-                            {movie.genres?.map((genre) => genre.name).join(", ") || "Indisponível"}
-                        </span>
-                    </p>
-
-                    <p className="movie-info-item">
-                        <FiClock size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Duração:</strong>{" "}
-                            {movie.runtime ? `${movie.runtime} minutos` : "Duração indisponível"}
-                        </span>
-                    </p>
-
-                    <p className="movie-info-item">
-                        <FiVideo size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Diretor:</strong> {director || "Indisponível"}
-                        </span>
-                    </p>
-
-                    <p className="movie-info-item">
-                        <FiUsers size={18} aria-hidden="true" />
-                        <span>
-                            <strong>Atores principais:</strong> {cast || "Indisponível"}
-                        </span>
-                    </p>
+                    <MovieInfoItem label="Data de lançamento" value={formattedDate} icon={<FiCalendar size={18} aria-hidden="true" />} />
+                    <MovieInfoItem label="Nota" value={movie.vote_average?.toFixed(1) ?? "-"} icon={<FiStar size={18} aria-hidden="true" />} />
+                    <MovieInfoItem label="Gêneros" value={movie.genres?.map((genre) => genre.name).join(", ") || "Indisponível"} icon={<FiFilm size={18} aria-hidden="true" />} />
+                    <MovieInfoItem label="Duração" value={movie.runtime ? `${movie.runtime} minutos` : "Duração indisponível"} icon={<FiClock size={18} aria-hidden="true" />} />
+                    <MovieInfoItem label="Diretor" value={director || "Indisponível"} icon={<FiUsers size={18} aria-hidden="true" />} />
+                    <MovieInfoItem label="Atores principais" value={cast || "Indisponível"} icon={<FiUsers size={18} aria-hidden="true" />} />
                 </div>
 
                 <div className="poster-container">

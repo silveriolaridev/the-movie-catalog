@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./MovieCard.css";
 import { FiStar } from "react-icons/fi";
+import MovieInfoItem from "../MovieInfoItem/MovieInfoItem";
 
 function MovieCard({ movie, variant = "default" }) {
   const baseImageUrl = "https://image.tmdb.org/t/p/w500";
@@ -25,10 +26,10 @@ function MovieCard({ movie, variant = "default" }) {
         </div>
 
         <div className="rating-row">
-          <span className="rating" aria-label={`Avaliação ${movie.vote_average.toFixed(1)}`}>
-            <FiStar size={16} aria-hidden="true" />
-            {movie.vote_average.toFixed(1)}
-          </span>
+          <MovieInfoItem
+            value={movie.vote_average?.toFixed(1) ?? "-"}
+            icon={<FiStar size={18} aria-hidden="true" />}
+          />
         </div>
       </div>
       

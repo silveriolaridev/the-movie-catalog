@@ -88,7 +88,9 @@
   transform: translateY(-4px);
 }
 
-.rating {
+.rating-row {
+  display: flex;
+  align-items: center;
   background: transparent;
   border-radius: 8px;
   font-weight: 600;
@@ -98,12 +100,6 @@
   color: var(--text);
   gap: 0.35rem;
 }
-
-.rating-row {
-  display: flex;
-  align-items: center;
-}
-
 
 .movie-card--compact img {
   height: 260px;
