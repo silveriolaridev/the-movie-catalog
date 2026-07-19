@@ -21,6 +21,7 @@ const SearchBar = ({
   };
 
   return (
+    <>
     <form className="searchbar" onSubmit={handleSearch}>
       <input
         className="search-input"
@@ -44,8 +45,8 @@ const SearchBar = ({
           ✖
         </button>
       )}
-      <span className="separator" aria-hidden="true" />      
-      <div className="sort-inline" aria-label="Ordenar filmes">
+    </form>
+        <div className="sort-inline" aria-label="Ordenar filmes">
         <p className="select-title">Ordenar por:</p>
         <div className="select-wrap">
           <select
@@ -61,7 +62,7 @@ const SearchBar = ({
           <span className="arrow">▾</span>
         </div>
       </div>
-    </form>
+      </>
   );
 }
 
