@@ -105,8 +105,3 @@ src/
   index.css
   main.jsx
 ```
-
-## Desenvolvido por
-
-Larissa Silvério  
-[GitHub](https://github.com/silveriolaridev) | [LinkedIn](coloque-seu-linkedin-aqui)
