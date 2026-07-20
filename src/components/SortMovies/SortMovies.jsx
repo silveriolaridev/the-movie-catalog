@@ -14,9 +14,9 @@ const SortMovies = ({ sortBy, setSortBy }) => {
                 onChange={(e) => setSortBy(e.target.value)}
             >
                 <option value="popularity">Mais populares</option>
-                <option value="rating">Maior avaliação</option>
-                <option value="title">Ordem alfabética</option>
-                <option value="year">Ano de lançamento</option>
+                <option value="rating">Melhor avaliados</option>
+                <option value="title">Título A-Z</option>
+                <option value="year">Mais recentes</option>
             </select>
             <span className="arrow">▾</span>
         </div>

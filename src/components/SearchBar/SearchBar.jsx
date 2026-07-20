@@ -1,5 +1,5 @@
 import "./SearchBar.css";
-import { Search } from "lucide-react";
+import { FiSearch } from "react-icons/fi"
 
 const SearchBar = ({
   searchTerm,
@@ -29,7 +29,7 @@ const SearchBar = ({
         />
 
         <button className="search-button" type="submit" aria-label="Buscar">
-          <Search size={18} aria-hidden="true" />
+          <FiSearch size={18} aria-hidden="true" />
         </button>
 
         {activeSearch && (

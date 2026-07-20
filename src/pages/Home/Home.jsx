@@ -3,7 +3,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { getPopularMovies, searchMovies } from "../../api/movieRequests";
 import "./Home.css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import SortMovies from "../../components/SortMovies/SortMovies";
 import Loading from "../../components/Loading/Loading";
 
@@ -131,7 +131,7 @@ function Home() {
                   disabled={page === 1}
                   aria-label="Anterior"
                 >
-                  <ChevronLeft size={18} aria-hidden="true" />
+                  <FiChevronLeft size={18} aria-hidden="true" />
                 </button>
 
                 <span className="pagination-info">
@@ -144,7 +144,7 @@ function Home() {
                   disabled={page === totalPages}
                   aria-label="Próxima"
                 >
-                  <ChevronRight size={18} aria-hidden="true" />
+                  <FiChevronRight size={18} aria-hidden="true" />
                 </button>
               </div>
             </>
